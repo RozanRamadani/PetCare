@@ -22,7 +22,7 @@ class ToolPolicy
      */
     public function view(User $user, Tool $tool): bool
     {
-        return false;
+        return true;
     }
 
     /**
