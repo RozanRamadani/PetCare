@@ -20,6 +20,10 @@ use App\Filament\Resources\PatientResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PatientResource\RelationManagers;
 use App\Filament\Resources\PatientResource\RelationManagers\TreatmentsRelationManager;
+use App\Filament\Resources\PatientResource\Widgets\PatientCountByTypeChart;
+use App\Filament\Resources\PatientResource\Widgets\PatientCountResourceOverview;
+use App\Filament\Resources\PatientResource\Widgets\TreatmentCountPerPatient;
+use App\Filament\Widgets\PatientCountOverview;
 
 class PatientResource extends Resource
 {
@@ -149,6 +153,15 @@ class PatientResource extends Resource
     {
         return parent::getGlobalSearchEloquentQuery()
             ->with(['owner']);
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            PatientCountResourceOverview::class,
+            PatientCountByTypeChart::class,
+            TreatmentCountPerPatient::class,
+        ];
     }
 
 }

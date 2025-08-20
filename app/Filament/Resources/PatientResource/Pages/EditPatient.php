@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PatientResource\Pages;
 
 use App\Filament\Resources\PatientResource;
+use App\Filament\Resources\PatientResource\Widgets\TreatmentCountPerPatient;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
@@ -14,6 +15,13 @@ class EditPatient extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            TreatmentCountPerPatient::class,
         ];
     }
 }

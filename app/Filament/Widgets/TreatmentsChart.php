@@ -9,6 +9,8 @@ use Filament\Widgets\ChartWidget;
 
 class TreatmentsChart extends ChartWidget
 {
+    protected static ?int $sort = 3;
+
     protected static ?string $heading = 'Chart';
 
     protected function getData(): array
@@ -16,7 +18,7 @@ class TreatmentsChart extends ChartWidget
         $data = Trend::model(Treatment::class)
             ->between(
                 start: now()->subYear(),
-                end: now(),
+                end: now()->addMonth(),
             )
             ->perMonth()
             ->count();
