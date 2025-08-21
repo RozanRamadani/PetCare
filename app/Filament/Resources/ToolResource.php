@@ -81,6 +81,7 @@ class ToolResource extends Resource
         return [
             'index' => Pages\ListTools::route('/'),
             'create' => Pages\CreateTool::route('/create'),
+            'detail' => Pages\DetailTool::route('/{record}/detail'),
             'edit' => Pages\EditTool::route('/{record}/edit'),
         ];
     }
