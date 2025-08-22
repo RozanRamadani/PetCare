@@ -29,9 +29,9 @@ class PatientResource extends Resource
 {
     protected static ?string $model = Patient::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
     protected static ?int $navigationSort = 2;
+
+    protected static ?string $navigationGroup = 'Data';
 
     public static function getNavigationBadge(): ?string
     {
@@ -44,6 +44,8 @@ class PatientResource extends Resource
     }
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?string $navigationBadgeTooltip = 'Total number of patients';
 
     public static function form(Form $form): Form
     {

@@ -19,11 +19,11 @@ class ToolResource extends Resource
 {
     protected static ?string $model = Tool::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-wrench';
-
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?int $navigationSort = 3;
+
+    protected static ?string $navigationGroup = 'Data';
 
     public static function form(Form $form): Form
     {
