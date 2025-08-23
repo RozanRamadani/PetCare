@@ -30,8 +30,7 @@ class ToolPolicy
      */
     public function create(User $user): bool
     {
-        $currentUser = Auth::user();
-        return $currentUser->id == 1 ? true : false;
+        return true;
     }
 
     /**
