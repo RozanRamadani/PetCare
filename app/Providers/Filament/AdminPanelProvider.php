@@ -4,12 +4,14 @@ namespace App\Providers\Filament;
 
 use Filament\Pages;
 use Filament\Panel;
+use App\Models\Team;
 use Filament\Widgets;
 use Filament\PanelProvider;
 use App\Http\Middleware\OnlyAdmin;
 use Filament\Support\Colors\Color;
 use Filament\Navigation\NavigationGroup;
 use Filament\Http\Middleware\Authenticate;
+use App\Filament\Pages\Tenancy\RegisterTeam;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -52,7 +54,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                OnlyAdmin::class,
+                // OnlyAdmin::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
@@ -65,6 +67,8 @@ class AdminPanelProvider extends PanelProvider
                 ->label('Settings')
                 ->icon('heroicon-s-cog-6-tooth')
             ])
-            ->sidebarCollapsibleOnDesktop();
+            ->sidebarCollapsibleOnDesktop()
+            ->tenant(Team::class)
+            ->tenantRegistration(RegisterTeam::class);
     }
 }
