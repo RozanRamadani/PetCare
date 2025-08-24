@@ -68,7 +68,7 @@ class AdminPanelProvider extends PanelProvider
                 ->icon('heroicon-s-cog-6-tooth')
             ])
             ->sidebarCollapsibleOnDesktop()
-            ->tenant(Team::class)
+            ->tenant(Team::class, slugAttribute: 'slug')
             ->tenantRegistration(RegisterTeam::class);
     }
 }

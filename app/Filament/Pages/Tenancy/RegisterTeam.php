@@ -9,6 +9,10 @@ use Filament\Pages\Tenancy\RegisterTenant;
 
 class RegisterTeam extends RegisterTenant
 {
+    public static function canView(): bool
+    {
+        return auth()->user()->id === 1;
+    }
     public static function getLabel(): string
     {
         return 'Register team';
