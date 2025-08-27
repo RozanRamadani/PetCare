@@ -14,6 +14,7 @@ use Illuminate\Contracts\Support\Htmlable;
 use App\Filament\Resources\ToolResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ToolResource\RelationManagers;
+use Filament\Forms\Components\FileUpload;
 
 class ToolResource extends Resource
 {
@@ -30,6 +31,20 @@ class ToolResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                FileUpload::make('attachment')
+                    ->label('Attachment')
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                        null
+                    ])
+                    ->multiple()
+                    ->maxSize(1024)
                     ->required(),
             ]);
     }

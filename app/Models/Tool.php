@@ -10,6 +10,10 @@ class Tool extends Model
 {
     use SoftDeletes;
 
+    protected $casts = [
+        'attachment' => 'array',
+    ];
+
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
