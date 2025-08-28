@@ -13,10 +13,10 @@ class Owner extends Model
 
     protected static function booted(): void
     {
-        $tenant = Filament::getTenant();
-        static::addGlobalScope('team', function (Builder $query) use ($tenant) {
-            $query->where('team_id', $tenant->id);
-        });
+        // $tenant = Filament::getTenant();
+        // static::addGlobalScope('team', function (Builder $query) use ($tenant) {
+        //     $query->where('team_id', $tenant->id);
+        // });
     }
 
     public function patients(): HasMany
